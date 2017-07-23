@@ -24,7 +24,7 @@ const char VK_SEL = 5;
 class Keypad 
 {
   /** delay in ms before the long key is fired */
-  static const int s_iLongKeyDelay = 1000;
+  const int s_iLongKeyDelay = 1000;
 
 public:
   /** keypad is on this analog pin */

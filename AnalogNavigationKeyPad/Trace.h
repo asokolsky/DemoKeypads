@@ -4,7 +4,9 @@
 #ifndef TRACE_h
 #define TRACE_h
 
+#ifndef NOTRACE
 #define DEBUG 1
+#endif
 
 #ifdef DEBUG
   #define DEBUG_PRINT(x)    Serial.print(x)

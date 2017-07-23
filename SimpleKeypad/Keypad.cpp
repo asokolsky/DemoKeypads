@@ -37,17 +37,16 @@ boolean Keypad::getAndDispatchKey(unsigned long ulNow)
     onLongKeyDown(vk);
     return true;
   }
-  
+  // vk != m_cOldKey
   if(m_cOldKey == VK_NONE) 
   {
     m_ulToFireLongKey = ulNow + s_iLongKeyDelay;
     onKeyDown(vk);
   } 
-  else if((m_ulToFireLongKey == 0) && (m_cOldKey == VK_SEL))
+  else if(vk != VK_NONE)
   {
-    // onLongKeyDown was fired!
-    // ignore this keyUp for VK_SEL
-    ;
+    // ignore transients!
+    return false;
   } else {
     m_ulToFireLongKey = 0l;
     onKeyUp(m_cOldKey);
